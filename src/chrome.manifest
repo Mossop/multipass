@@ -1,0 +1,4 @@
+content     multipass                                           ${extension.chromebase}/content/
+skin        multipass       classic/1.0                         ${extension.chromebase}/skin/
+
+locale      nightly         en-US                               ${extension.chromebase}/locale/en-US/
