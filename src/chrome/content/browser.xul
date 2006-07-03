@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+ <!--
+   - $HeadURL$
+   - $LastChangedBy$
+   - $Date$
+   - $Revision$
+   -->
+
+<!DOCTYPE overlay SYSTEM "chrome://multipass/locale/multipass.dtd">
+
+<overlay id="MultipassOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript" src="multipass.js"/>
+
+  <!-- Sidebar -->
+  <broadcasterset id="mainBroadcasterSet">
+    <broadcaster id="viewMultipassSidebar"
+          autoCheck="false" 
+          label="&showsidebar.label;"
+          type="checkbox"
+          group="sidebar"
+          sidebarurl="chrome://multipass/content/sidebar.xul"
+          sidebartitle="&sidebar.title;"
+          oncommand="toggleSidebar('viewMultipassSidebar');"/>
+  </broadcasterset>
+
+  <menupopup id="viewSidebarMenu">
+    <menuitem observes="viewMultipassSidebar"/>
+  </menupopup>
+
+</overlay>
+

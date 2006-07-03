@@ -1,0 +1,13 @@
+<!ENTITY showsidebar.label          "Multipass Sidebar">
+<!ENTITY sidebar.title              "Multipass Manager">
+<!ENTITY import.label               "Import">
+<!ENTITY import.passwdmgr.label     "Import from password manager...">
+<!ENTITY import.text.label          "Import from text file...">
+<!ENTITY import.fileoverwrite.label "Import from rdf file (overwrite)...">
+<!ENTITY import.fileadd.label       "Import from rdf file (append)...">
+<!ENTITY addpage.tooltip            "Add the current page">
+<!ENTITY addlogin.tooltip           "Add a new login">
+<!ENTITY working.label              "Login works">
+<!ENTITY delete.label               "Delete">
+<!ENTITY addgroup.label             "Add group">
+<!ENTITY properties.label           "Properties">

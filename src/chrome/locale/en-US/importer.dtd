@@ -1,0 +1,7 @@
+<!ENTITY add.label          "Add checked">
+<!ENTITY remove.label       "Remove checked">
+<!ENTITY load.label         "Load...">
+<!ENTITY paste.label        "Paste">
+<!ENTITY parse.label        "Parse">
+<!ENTITY uncheckall.label   "Uncheck all">
+<!ENTITY checkall.label     "Check all">

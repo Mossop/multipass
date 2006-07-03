@@ -1,0 +1,37 @@
+#addpage {
+  list-style-image: url("chrome://multipass/skin/addpage.gif");
+}
+
+#addlogin {
+  list-style-image: url("chrome://multipass/skin/addlogin.gif");
+}
+
+treechildren::-moz-tree-image {
+  margin: 0px 2px;
+}
+
+
+treechildren::-moz-tree-image(group) {
+  list-style-image: url("chrome://global/skin/icons/folder-item.png");
+  -moz-image-region: rect(0px, 32px, 16px, 16px);
+}
+ 
+treechildren::-moz-tree-image(group, open) {
+  -moz-image-region: rect(16px, 32px, 32px, 16px);
+}
+
+treechildren::-moz-tree-image(site) {
+  list-style-image: url("chrome://multipass/skin/site.gif");
+}
+
+treechildren::-moz-tree-image(login) {
+  list-style-image: url("chrome://multipass/skin/login.gif");
+}
+
+treechildren::-moz-tree-image(badlogin) {
+  list-style-image: url("chrome://multipass/skin/badlogin.gif");
+}
+
+treechildren::-moz-tree-cell-text(badlogin) {
+  color: GrayText;
+}

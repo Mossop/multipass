@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+ <!--
+   - $HeadURL$
+   - $LastChangedBy$
+   - $Date$
+   - $Revision$
+   -->
+
+<?xml-stylesheet href="chrome://global/skin/global.css"?>
+<?xml-stylesheet href="chrome://multipass/skin/importer.css"?>
+
+<!DOCTYPE page SYSTEM "chrome://multipass/locale/importer.dtd">
+
+<window id="MultipassTextImporter" persist="screenX screenY width height sizemode"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript" src="multipass.js"/>
+  <script type="application/x-javascript" src="importer.js"/>
+
+  <stringbundleset>
+    <stringbundle id="bundle" src="chrome://multipass/locale/importer.properties"/>
+  </stringbundleset>
+  
+  <grid flex="1">
+    <columns>
+      <column flex="1"/>
+      <column/>
+    </columns>
+    <rows>
+      <row flex="1">
+        <textbox id="text" multiline="true" wrap="off"/>
+        <vbox>
+          <button oncommand="paste()" label="&paste.label;"/>
+          <button oncommand="load()" label="&load.label;"/>
+          <button oncommand="parse()" label="&parse.label;"/>
+        </vbox>
+      </row>
+      <splitter/>
+      <row flex="1">
+        <listbox id="passwords">
+          <listhead>
+            <listheader label="URL"/>
+          </listhead>
+          <listcols>
+            <listcol flex="1"/>
+          </listcols>
+        </listbox>
+        <vbox>
+          <button oncommand="checkAll()" label="&checkall.label;"/>
+          <button oncommand="uncheckAll()" label="&uncheckall.label;"/>
+          <button oncommand="addChecked()" label="&add.label;"/>
+          <button oncommand="removeChecked()" label="&remove.label;"/>
+        </vbox>
+      </row>
+    </rows>
+  </grid>
+  
+</window>

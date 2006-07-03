@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+ <!--
+   - $HeadURL$
+   - $LastChangedBy$
+   - $Date$
+   - $Revision$
+   -->
+
+<?xml-stylesheet href="chrome://global/skin/global.css"?>
+<?xml-stylesheet href="chrome://multipass/skin/site.css"?>
+
+<!DOCTYPE page SYSTEM "chrome://multipass/locale/site.dtd">
+
+<dialog id="MultipassSiteEditor" buttons="accept,cancel" ondialogaccept="accept()"
+      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript" src="multipass.js"/>
+  <script type="application/x-javascript" src="site.js"/>
+  
+  <grid>
+    <columns>
+      <column/>
+      <column flex="1"/>
+    </columns>
+    <rows>
+      <row>
+        <label value="Name"/>
+        <textbox id="name"/>
+      </row>
+      <row>
+        <label value="Url"/>
+        <textbox id="uri"/>
+      </row>
+      <row>
+        <label value="Type"/>
+        <menulist id="security">
+          <menupopup>
+            <menuitem label="Http Authentication" value="auth"/>
+            <menuitem label="Form Authentication" value="form"/>
+            <menuitem label="Captcha Authentication" value="captcha"/>
+          </menupopup>
+        </menulist>
+      </row>
+      <row>
+        <label value="Username field:"/>
+        <textbox id="usernamefield"/>
+      </row>
+      <row>
+        <label value="Password field:"/>
+        <textbox id="passwordfield"/>
+      </row>
+    </rows>
+  </grid>
+
+</dialog>

@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+
+ <!--
+   - $HeadURL$
+   - $LastChangedBy$
+   - $Date$
+   - $Revision$
+   -->
+
+<?xml-stylesheet href="chrome://global/skin/global.css"?>
+<?xml-stylesheet href="chrome://multipass/skin/sidebar.css"?>
+
+<!DOCTYPE page SYSTEM "chrome://multipass/locale/multipass.dtd">
+
+<page id="MultipassSidebar"
+      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:mp="urn:multipass:properties#">
+
+  <script type="application/x-javascript" src="chrome://global/content/nsDragAndDrop.js"/>
+  <script type="application/x-javascript" src="chrome://global/content/nsTransferable.js"/>
+  <script type="application/x-javascript" src="multipass.js"/>
+  <script type="application/x-javascript" src="sidebar.js"/>
+  
+  <stringbundleset>
+    <stringbundle id="bundle" src="chrome://multipass/locale/multipass.properties"/>
+  </stringbundleset>
+  
+  <popupset>
+    <popup id="context" onpopupshowing="return onPopupShowing(event);">
+      <menuitem id="working" oncommand="flipLogin()" types="login" type="checkbox" label="&working.label;"/>
+      <menuitem types="group site" oncommand="addGroup()" label="&addgroup.label;"/>
+      <menuitem oncommand="deleteItem()" label="&delete.label;"/>
+      <menuitem types="site" oncommand="properties()" label="&properties.label;"/>
+    </popup>
+  </popupset>
+  
+  <toolbox>
+    <toolbar>
+      <toolbarbutton id="addpage" tooltiptext="&addpage.tooltip;"/>
+      <toolbarbutton id="addlogin" tooltiptext="&addlogin.tooltip;"/>
+      <toolbarspacer flex="1"/>
+      <toolbarbutton type="menu" label="&import.label;">
+        <menupopup>
+          <menuitem label="&import.passwdmgr.label;"/>
+          <menuitem oncommand="showImporter()" label="&import.text.label;"/>
+          <menuitem oncommand="rdfImport(true)" label="&import.fileoverwrite.label;"/>
+          <menuitem oncommand="rdfImport(false)" label="&import.fileadd.label;"/>
+        </menupopup>
+      </toolbarbutton>
+    </toolbar>
+  </toolbox>
+  <tree id="maintree" flex="1"
+        datasources="rdf:null" ref="urn:multipass:root" flags="dont-build-content"
+        ondraggesture="if (event.originalTarget.localName == 'treechildren') nsDragAndDrop.startDrag(event, DNDObserver);"
+        context="context">
+    <treecols>
+      <treecol id="name" label="Name" primary="true" flex="1" persist="width hidden"
+               sort="rdf:urn:multipass:properties#name"
+               sortActive="true" sortDirection="none"/>
+      <treecol id="password" label="Password" flex="1" hidden="true" persist="width hidden"/>
+    </treecols>
+    <template>
+      <rule mp:type="group">
+        <treechildren>
+          <treeitem uri="rdf:*">
+            <treerow>
+              <treecell properties="group" label="rdf:urn:multipass:properties#name"/>
+              <treecell label=""/>
+            </treerow>
+          </treeitem>
+        </treechildren>
+      </rule>
+      <rule mp:type="site">
+        <treechildren>
+          <treeitem uri="rdf:*">
+            <treerow>
+              <treecell properties="site" label="rdf:urn:multipass:properties#name"/>
+              <treecell label=""/>
+            </treerow>
+          </treeitem>
+        </treechildren>
+      </rule>
+      <rule mp:type="login" mp:working="true">
+        <treechildren>
+          <treeitem uri="rdf:*">
+            <treerow>
+              <treecell properties="login" label="rdf:urn:multipass:properties#name"/>
+              <treecell label="rdf:urn:multipass:properties#password"/>
+            </treerow>
+          </treeitem>
+        </treechildren>
+      </rule>
+      <rule mp:type="login" mp:working="false">
+        <treechildren>
+          <treeitem uri="rdf:*">
+            <treerow>
+              <treecell properties="badlogin" label="rdf:urn:multipass:properties#name"/>
+              <treecell label="rdf:urn:multipass:properties#password"/>
+            </treerow>
+          </treeitem>
+        </treechildren>
+      </rule>
+    </template>
+  </tree>
+</page>
