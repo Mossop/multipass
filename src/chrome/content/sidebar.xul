@@ -58,6 +58,7 @@
       <treecol id="name" label="Name" primary="true" flex="1" persist="width hidden"
                sort="rdf:urn:multipass:properties#name"
                sortActive="true" sortDirection="none"/>
+      <splitter class="tree-splitter"/>
       <treecol id="password" label="Password" flex="1" hidden="true" persist="width hidden"/>
     </treecols>
     <template>
