@@ -528,7 +528,7 @@ var MultiPass = {
     return value.QueryInterface(Components.interfaces.nsIURL);
   },
   
-  setURIProperty: function(resource, property, value)
+  setURLProperty: function(resource, property, value)
   {
     value = this.gRDF.GetLiteral(value.spec);
     this.setProperty(resource, property, value);
